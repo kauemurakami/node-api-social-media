@@ -1,6 +1,6 @@
 const dotenv = require('dotenv').config()
 
-const knex = require('knex')({
+const development = {
   client: 'pg',
   connection: {
     host: '127.0.0.1',
@@ -10,8 +10,8 @@ const knex = require('knex')({
     database: 'node-social-media'
   },
   migrations: {
-      tableName: 'knex_migrations',
-      directory: './migrations/'
+    tableName: 'knex_migrations',
+    directory: './migrations/'
   },
   pool: {
     afterCreate: function (conn, cb) {
@@ -19,7 +19,11 @@ const knex = require('knex')({
         cb(err, conn);
       });
     }
-  },
-});
+  }
 
-module.exports = knex
+
+}
+const production = {
+}
+
+module.exports = { development, production}

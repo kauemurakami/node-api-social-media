@@ -12,7 +12,7 @@
     "migrate-latest": "knex migrate:latest --knexfile ./app/data/db/config.js --migrations-directory ./migrations",
     "new-migrate": "knex migrate:make %npm_config_name% --migrations-directory ./app/data/db/migrations",
     "migrate-rollback": "knex migrate:rollback --all --knexfile ./app/core/configs/knex/config.js --migrations-directory ./app/data/db/migrations",
-    "migrate-up": "knex migrate:up %npm_config_name% --knexfile ./app/data/db/config.js --migrations-directory ./app/data/db/migrations",
+    "migrate-up": "knex migrate:up %npm_config_name% --knexfile ./app/data/db/config.js --migrations-directory ./migrations",
     "migrate-down": "knex migrate:down %npm_config_name% --knexfile ./app/core/configs/knex/config.js --migrations-directory ./db/migrations"
   },
   "author": "Kauê Murakami",
