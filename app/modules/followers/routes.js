@@ -1,13 +1,11 @@
+var express = require("express")
+var followersRouter = express.Router()
+const controller = require('./controller')
+const { user_authenticated } = require("../../core/middlewares/auth_middleware")
 
-class UsersController {
+followersRouter
+  .route('/')
+  .post(user_authenticated, controller.follow)
+  .delete(user_authenticated, controller.unfollow)
 
-  async create(req, res, next) {
-    const CreateUser = require('./functions/create')
-    await CreateUser.execute(req.body).then(data =>
-      res.status(200).send(data)
-    ).catch(err => next(err))
-  }
-
-}
-
-module.exports = new UsersController();
+module.exports = followersRouter

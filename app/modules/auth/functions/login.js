@@ -1,7 +1,6 @@
 const knex = require('../../../data/db/knex')
 const launch_error = require('../../../core/errors/launch_error')
 const hash = require('../../../core/utils/functions/hash')
-const jwt = require('./jwt')
 
 class LoginUser {
   async execute(body) {
