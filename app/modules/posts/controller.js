@@ -1,32 +1,21 @@
 
 class PostsController {
-  async create(req, res, next) {
+  async post(req, res, next) {
     const CreatePost = require('./functions/create')
     await CreatePost.execute(req.body).then(data =>
       res.status(201).send(data)
     ).catch(err => next(err))
   }
-  async getAll(req, res, next) {
-    const GetPosts = require('./functions/get_all')
+  async posts(req, res, next) {
+    const GetPosts = require('./functions/posts')
     await GetPosts.execute(req.body).then(data =>
       res.status(201).send(data)
     ).catch(err => next(err))
   }
-  async get(req, res, next) {
-    const GetPost = require('./functions/get_by_id')
-    await GetPost.execute(req.body).then(data =>
-      res.status(201).send(data)
-    ).catch(err => next(err))
-  }
-  async edit(req, res, next) {
-    const EditPost = require('./functions/edit')
-    await EditPost.execute(req.body).then(data =>
-      res.status(201).send(data)
-    ).catch(err => next(err))
-  }
+
   async delete(req, res, next) {
     const DeletePost = require('./functions/delete')
-    await DeletePost.execute(req.body).then(data =>
+    await DeletePost.execute(req.query).then(data =>
       res.status(201).send(data)
     ).catch(err => next(err))
   }
