@@ -14,6 +14,20 @@ class FollowersController {
     ).catch(err => next(err))
   }
 
+  async followers(req, res, next) {
+    const Followers = require('./functions/followers')
+    await Followers.execute(req.query).then(data =>
+      res.status(201).send(data)
+    ).catch(err => next(err))
+  }
+
+  async following(req, res, next) {
+    const Followings = require('./functions/following')
+    await Followings.execute(req.query).then(data =>
+      res.status(201).send(data)
+    ).catch(err => next(err))
+  }
+
 }
 
 module.exports = new FollowersController();

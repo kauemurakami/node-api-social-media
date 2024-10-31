@@ -6,6 +6,11 @@ const { user_authenticated } = require("../../core/middlewares/auth_middleware")
 followersRouter
   .route('/')
   .post(user_authenticated, controller.follow)
+  .get(user_authenticated, controller.followers)
   .delete(user_authenticated, controller.unfollow)
+
+followersRouter
+  .route('/following')
+  .get(user_authenticated, controller.following)
 
 module.exports = followersRouter
